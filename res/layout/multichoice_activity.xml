@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ececec" >
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="What is the definition of abrogate?"
+        android:textColor="#4086aa"
+        android:textSize="20dp" />
+
+     <TextView
+        android:id="@+id/answer"
+        android:layout_width="fill_parent"
+        android:text="Result..."
+        android:textColor="#4086aa"
+        android:layout_height="wrap_content"/>
+
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:onClick="checkAnswer"
+         android:text="Submit" />
+
+    <ListView
+        android:id="@android:id/list"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:drawSelectorOnTop="false"
+    	android:textColor="#4086aa"
+    	android:choiceMode="singleChoice"/>
+    
+</LinearLayout>
