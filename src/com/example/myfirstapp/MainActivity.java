@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.content.Intent;
@@ -35,14 +36,27 @@ public class MainActivity extends Activity {
     }
     
     public void goToMC(View view){
-    	Intent intent = new Intent(this, ListViewActivity.class);
+    	Intent intent = new Intent(this, MultipleChoiceActivity.class);
     	intent.putExtra("question","What is the definition of \"abrogate\"?");
     	intent.putExtra("choice0","To revoke, formally");
     	intent.putExtra("choice1","To anger or upset");
     	intent.putExtra("choice2","To change drastically");
     	intent.putExtra("choice3","To bridge together, combine");
-    	intent.putExtra("hint", "Example Sentence: \"Executions also abrogate  the possibility of redemption.\"");
-    	intent.putExtra("correct","0");
+    	intent.putExtra("hint", "Example Sentence: \"Executions also abrogate the possibility of redemption.\"");
+    	intent.putExtra("correct","1");
+    	startActivity(intent);
+    }
+    
+    public void goToPic(View view){
+    	Intent intent = new Intent(this, ImgView.class);
+    	intent.putExtra("question","What is the definition of \"abrogate\"?");
+    	intent.putExtra("choice0","To revoke, formally");
+    	intent.putExtra("choice1","To anger or upset");
+    	intent.putExtra("choice2","To change drastically");
+    	intent.putExtra("choice3","To bridge together, combine");
+    	intent.putExtra("hint", "Example Sentence: \"Executions also abrogate the possibility of redemption.\"");
+    	intent.putExtra("correct","1");
+    	intent.putExtra("url", "http://www.lizmelville.co.uk/wp-content/uploads/2010/10/facebook-icon.gif");
     	startActivity(intent);
     }
     

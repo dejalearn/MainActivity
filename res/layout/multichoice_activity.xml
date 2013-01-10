@@ -2,36 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:background="#ececec" >
+    android:background="#ECECEC"
+    android:gravity="right|top"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/question"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="What is the definition of abrogate?"
-        android:textColor="#4086aa"
+        android:textColor="#153450"
+        android:textStyle="bold"
+        android:padding="10px"
         android:textSize="20dp" />
 
-     <TextView
-        android:id="@+id/answer"
-        android:layout_width="fill_parent"
-        android:text="Result..."
-        android:textColor="#4086aa"
-        android:layout_height="wrap_content"/>
 
-     <Button
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:onClick="checkAnswer"
-         android:text="Submit" />
 
     <ListView
         android:id="@android:id/list"
     	android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
     	android:drawSelectorOnTop="false"
-    	android:textColor="#4086aa"
+    	android:textColor="#FFFFFF"
+    	android:layout_weight="1"
     	android:choiceMode="singleChoice"/>
-    
+
+    <Button
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:onClick="checkAnswer"
+        android:text="Submit"
+        android:textColor="@drawable/custom_button_textcolor" />
+
 </LinearLayout>

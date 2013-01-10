@@ -34,12 +34,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ListViewActivity extends ListActivity {
+public class MultipleChoiceActivity extends ListActivity {
     /** Called when the activity is first created. */
-	private TextView selection;
-	private TextView result;
 	private TextView questionView;
-	String str="";
 	int correctAnswer = 0;
 	int userAnswer;
 	private String hint;
@@ -60,21 +57,21 @@ public class ListViewActivity extends ListActivity {
         items[3] = choice3;
         correctAnswer = Integer.parseInt(myIntent.getStringExtra("correct"));
         setContentView(R.layout.multichoice_activity);
-        setListAdapter(new ArrayAdapter(this,android.R.layout.simple_list_item_multiple_choice,items));
+        setListAdapter(new ArrayAdapter(this,R.layout.custom_list_item,items));
         questionView=(TextView)findViewById(R.id.question);
         questionView.setText(question);
     }
    
     
     public void onListItemClick(ListView parent,View v,int position,long id){
-    	userAnswer = position;
+    	userAnswer = position+1;
     }
     
     
     public void checkAnswer(View v){
-    	result=(TextView)findViewById(R.id.answer);
+    	
     	if(userAnswer == correctAnswer){
-    		result.setText("Correct!");
+    		new AlertDialog.Builder(this).setTitle("Correct!").setMessage("").setNeutralButton("Close", null).show();  
     	}
     	else{
     		new AlertDialog.Builder(this).setTitle("Oops. Here's a hint.").setMessage(hint).setNeutralButton("Close", null).show();  
