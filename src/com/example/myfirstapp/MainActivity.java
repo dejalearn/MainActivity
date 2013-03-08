@@ -1,5 +1,11 @@
 package com.example.myfirstapp;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -12,7 +18,6 @@ public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.message";
 	
 	EditText inputData;
-	String url = "http://www.server34.000webhost.com/testFIle.php";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,30 +40,100 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
-    public void goToMC(View view){
-    	Intent intent = new Intent(this, Grabber.class);
-    	/*intent.putExtra("question","What is the definition of \"abrogate\"?");
-    	intent.putExtra("choice0","To revoke, formally");
-    	intent.putExtra("choice1","To anger or upset");
-    	intent.putExtra("choice2","To change drastically");
-    	intent.putExtra("choice3","To bridge together, combine");
-    	intent.putExtra("hint", "Example Sentence: \"Executions also abrogate the possibility of redemption.\"");
-    	intent.putExtra("correct","1");*/
-    	startActivity(intent);
+    public void goToMC(View view) throws IOException, InterruptedException, ExecutionException{
+    	//Intent intent = new Intent(this, Grabber.class);
+    	//startActivity(intent);
+    	/*getXML sendData = new getXML();
+    	HashMap<String, String> info = sendData.startTransfer("0","newhost");
+    	String type = info.get("type");
+    	if(type.equals("MC")){
+    		Intent intent = new Intent(this,MultipleChoiceActivity.class);
+    		intent.putExtra("info", info);
+    		startActivity(intent);
+    	}
+    	if(type.equals("imgMC")){
+    		Intent intent = new Intent(this, ImgView.class);
+    		intent.putExtra("info", info);
+    		startActivity(intent);
+    	}
+    	if(type.equals("imgFIB")){
+    		Intent intent = new Intent(this, ImageFillBlankActivity.class);
+    		intent.putExtra("info", info);
+    		startActivity(intent);
+    	}*/
+    	
+    	DatabaseHandler db = new DatabaseHandler(this);
+    	 
+        /**
+         * CRUD Operations
+         * */
+        // Inserting Contacts
+        //Log.d("Insert: ", "Inserting ..");
+        //Exercise ex = new Exercise("cs174b",3,"mc");
+        //db.addExercise(ex);
+        
+        //Exercise t = db.getExercise("cs174b", 2);
+        //Log.i("returned", t.packet);
+    	db.updateExercise("cs174b", 3, true);
+        /*
+        // Reading all contacts
+        Log.d("Reading: ", "Reading all contacts..");
+        List<Contact> contacts = db.getAllContacts();       
+ 
+        for (Contact cn : contacts) {
+            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
+                // Writing Contacts to log
+        Log.d("Name: ", log);
+        }*/
+    	
+    	
+
+    	
 
     }
     
-    public void goToPic(View view){
-    	Intent intent = new Intent(this, ImgView.class);
-    	intent.putExtra("question","What is the definition of \"abrogate\"?");
-    	intent.putExtra("choice0","To revoke, formally");
-    	intent.putExtra("choice1","To anger or upset");
-    	intent.putExtra("choice2","To change drastically");
-    	intent.putExtra("choice3","To bridge together, combine");
-    	intent.putExtra("hint", "Example Sentence: \"Executions also abrogate the possibility of redemption.\"");
-    	intent.putExtra("correct","1");
-    	intent.putExtra("url", "http://www.lizmelville.co.uk/wp-content/uploads/2010/10/facebook-icon.gif");
-    	startActivity(intent);
+    public void goToPic(View view) throws InterruptedException, ExecutionException{
+    	/*SendDataActivity sendData = new SendDataActivity();
+    	String get = sendData.startTransferLogin("1");
+    	Log.i("response", get);
+    	String delim = "--";
+		String[] tokens = get.split(delim);
+		String exerciseType = tokens[0];
+		//String exerciseType = "MultChoice";
+		//String get = "MultChoice--3--What is the def abrogate?--3--a--b--c--d--hint";
+		if(exerciseType.equals("MultChoice")){
+			Log.i("Debug","Made it tis far");
+			Intent intent = new Intent(this, MultipleChoiceActivity.class);
+	    	intent.putExtra("message",get);
+	    	startActivity(intent);
+		}
+		
+		if(exerciseType.equals("PicMultChoice")){
+			Intent intent = new Intent(this, ImgView.class);
+	    	intent.putExtra("question",tokens[2]);
+	    	intent.putExtra("choice0",tokens[4]);
+	    	intent.putExtra("choice1",tokens[5]);
+	    	intent.putExtra("choice2",tokens[6]);
+	    	intent.putExtra("choice3",tokens[7]);
+	    	intent.putExtra("hint", tokens[8]);
+	    	intent.putExtra("correct",tokens[3]);
+	    	intent.putExtra("url", tokens[9]);
+	    	startActivity(intent);
+		}
+		
+		if(exerciseType.equals("PicFillInBlank")){
+	    	Intent intent = new Intent(this, ImageFillBlankActivity.class);
+	    	intent.putExtra("question",tokens[2]);
+	    	intent.putExtra("hint", tokens[8]);
+	    	intent.putExtra("url", tokens[9]);
+	    	intent.putExtra("correct", tokens[10]);
+	    	startActivity(intent); 
+		}*/
+    	Intent intent = new Intent(this,HomeScreenActivity.class);
+		startActivity(intent);
+    	
     }
+    
+   
     
 }

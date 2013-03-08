@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -58,19 +59,20 @@ public class ImgView extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Intent myIntent= getIntent(); 
-        String question = myIntent.getStringExtra("question"); 
-        String choice0 = myIntent.getStringExtra("choice0");
-        String choice1 = myIntent.getStringExtra("choice1");
-        String choice2 = myIntent.getStringExtra("choice2");
-        String choice3 = myIntent.getStringExtra("choice3");
-        String url = myIntent.getStringExtra("url");
-        hint = myIntent.getStringExtra("hint");
-        items[0] = choice0;
-        items[1] = choice1;
-        items[2] = choice2;
-        items[3] = choice3;
-        correctAnswer = Integer.parseInt(myIntent.getStringExtra("correct"));
+        Intent intent= getIntent(); 
+        HashMap<String, String> info = (HashMap<String, String>)intent.getSerializableExtra("info");
+		String question = info.get("question");
+		String choice0 = info.get("choiceA");
+		String choice1 = info.get("choiceB");
+		String choice2 = info.get("choiceC");
+		String choice3 = info.get("choiceD");
+		hint = info.get("hint");
+		items[0] = choice0;
+		items[1] = choice1;
+		items[2] = choice2;
+		items[3] = choice3;
+		correctAnswer = Integer.parseInt(info.get("answer"));
+		String url = info.get("url");
 
         setContentView(R.layout.imageview);
         questionView=(TextView)findViewById(R.id.question);

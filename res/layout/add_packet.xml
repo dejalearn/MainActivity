@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+	    
+        <ListView
+        android:id="@android:id/list"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:drawSelectorOnTop="false"
+    	android:textColor="#FFFFFF"
+    	android:layout_weight="1"
+    	android:padding="5dp"
+    	android:layout_below="@+id/search_terms"
+    	android:choiceMode="singleChoice"/>
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="search"
+            android:text="Search" />
+
+        <EditText
+            android:id="@+id/search_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/search"
+            android:layout_alignBottom="@+id/search"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/search"
+            android:ems="10"
+            android:hint="Separate Each Search Term By Comma"
+            android:textSize="12sp" />
+	
+</RelativeLayout>

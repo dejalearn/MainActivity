@@ -45,6 +45,30 @@ public class Grabber extends Activity{
     	intent.putExtra("difficulty", tokens[1]);
     	startActivity(intent);
 	}
+    
+    public void getPictureMultipleChoice(String[] tokens, View view){
+    	Intent intent = new Intent(this, ImgView.class);
+    	intent.putExtra("question",tokens[2]);
+    	intent.putExtra("choice0",tokens[4]);
+    	intent.putExtra("choice1",tokens[5]);
+    	intent.putExtra("choice2",tokens[6]);
+    	intent.putExtra("choice3",tokens[7]);
+    	intent.putExtra("hint", tokens[8]);
+    	intent.putExtra("correct",tokens[3]);
+    	intent.putExtra("url", tokens[9]);
+    	startActivity(intent);
+    }
+    
+    
+    public void getPictureFillInBlank(String[] tokens, View view){
+    	Intent intent = new Intent(this, ImageFillBlankActivity.class);
+    	intent.putExtra("question",tokens[2]);
+    	intent.putExtra("hint", tokens[8]);
+    	intent.putExtra("url", tokens[9]);
+    	intent.putExtra("correct", tokens[10]);
+    	startActivity(intent);
+    }
+    
 	
     private class SendData extends AsyncTask<Void, Void, Void>{ 
 
@@ -57,7 +81,7 @@ public class Grabber extends Activity{
 		// HTTP POST Request
 				try {
 					List<NameValuePair> nameValues = new ArrayList<NameValuePair>(1);
-					nameValues.add(new BasicNameValuePair("id", "1"));
+					nameValues.add(new BasicNameValuePair("id", "3"));
 					httppost.setEntity(new UrlEncodedFormEntity(nameValues));
 		
 					HttpResponse response = httpclient.execute(httppost);
@@ -67,15 +91,21 @@ public class Grabber extends Activity{
 					String[] tokens = res.split(delim);
 					String exerciseType = tokens[0];
 					
-					//if (resEntity != null) {
-					//	Log.i("Response", EntityUtils.toString(resEntity));
-					//}
-					
+
 					if(exerciseType.equals("MultChoice")){
 						Log.i("Debug","Made it tis far");
 						Grabber.this.getMultipleChoice(tokens,view);
 					}
-					// goToMC(view,tokens[2],tokens[4],tokens[5],tokens[6],tokens[7],tokens[8],tokens[3]);
+					
+					if(exerciseType.equals("PicMultChoice")){
+						Grabber.this.getPictureMultipleChoice(tokens,view);
+					}
+					
+					if(exerciseType.equals("PicFillInBlank")){
+						Grabber.this.getPictureFillInBlank(tokens, view);
+					}
+					
+					
 		
 				} catch (ClientProtocolException e) {
 					e.printStackTrace();
@@ -85,8 +115,6 @@ public class Grabber extends Activity{
 				return null;
 		}
 	}
-	
-	
 	
 	
 }

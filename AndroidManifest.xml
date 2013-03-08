@@ -10,7 +10,9 @@
 	<uses-permission android:name ="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
- 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -52,6 +54,31 @@
         <activity
             android:name="com.example.myfirstapp.Grabber"
             android:label="imgview"
+            android:parentActivityName="com.example.myfirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.myfirstapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.myfirstapp.ImageFillBlankActivity"
+            android:label="imgview"
+            android:parentActivityName="com.example.myfirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.myfirstapp.MainActivity" />
+        </activity>
+           <activity
+            android:name="com.example.myfirstapp.HomeScreenActivity"
+            android:label="DejaLearn"
+            android:parentActivityName="com.example.myfirstapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.myfirstapp.MainActivity" />
+        </activity>
+        
+       <activity
+            android:name="com.example.myfirstapp.AddPacketActivity"
+            android:label="Search for Packets"
             android:parentActivityName="com.example.myfirstapp.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

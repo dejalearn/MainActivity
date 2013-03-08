@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ECECEC"
+    android:background="@drawable/chalkboard_backdrop_opti"
     android:gravity="right|top"
     android:orientation="vertical" >
 
@@ -11,10 +11,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="What is the definition of abrogate?"
-        android:textColor="#153450"
+        android:textColor="#fbfbfb"
         android:textStyle="bold"
-        android:padding="10px"
-        android:textSize="20dp" />
+        android:padding="15dp"
+        android:textSize="30dp" />
 
 
 
@@ -25,6 +25,7 @@
     	android:drawSelectorOnTop="false"
     	android:textColor="#FFFFFF"
     	android:layout_weight="1"
+    	android:padding="15dp"
     	android:choiceMode="singleChoice"/>
 
     <Button

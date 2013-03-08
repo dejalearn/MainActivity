@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="105dp"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvViewRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#b3bcc3"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="5dp"
+        android:text="this is a row"
+        android:textColor="#fff"
+        android:textSize="17dp" >
+    </TextView>
+
+    <ProgressBar
+        android:id="@+id/progBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvViewRow"
+        android:layout_marginRight="5dp"
+        android:minHeight="10dp"
+        android:minWidth="280dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:progressDrawable="@drawable/custom_progress" />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvViewRow"
+        android:layout_toRightOf="@+id/progBar"
+        android:paddingTop="1dp"
+        android:text="%"
+        android:textColor="#c0c5cb"
+        android:textSize="20sp" >
+    </TextView>
+
+    <Button
+        android:id="@+id/BtnToClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/percent"
+        android:layout_below="@+id/percent"
+        android:background="@drawable/take_quiz_button"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:onClick="alert"
+        android:text="Take Quiz"
+        android:textColor="@drawable/quiz_button_textcolor"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/Restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/BtnToClick"
+        android:layout_toLeftOf="@+id/BtnToClick"
+        android:background="@drawable/restart_button"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:onClick="alert"
+        android:layout_marginRight="10dp"
+        android:text="Restart"
+        android:textColor="@drawable/quiz_button_textcolor"
+        android:textSize="15sp" />
+
+</RelativeLayout>
